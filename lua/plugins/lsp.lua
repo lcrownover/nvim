@@ -19,6 +19,9 @@ return {
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("attach-lsp", { clear = true }),
 			callback = function(event)
+                local toggle_inlay_hints = function()
+                    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+                end
 				local map = function(keys, func, desc)
 					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
@@ -29,6 +32,7 @@ return {
 				map("<leader>ls", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
 				map("<leader>lr", ":LspRestart<cr>", "Restart LSP server")
 				map("<leader>li", ":LspInfo<cr>", "Show LSP info")
+				map("<leader>lh", toggle_inlay_hints, "Toggle LSP inlay hints")
 				map("<leader>fs", vim.lsp.buf.format, "LSP Format")
 				-- map("gn", vim.lsp.buf.rename, "Rename Symbol")
 				map("<F2>", vim.lsp.buf.rename, "Rename Symbol")
