@@ -25,14 +25,44 @@
 -- 		vim.g.lualine_theme = "tokyonight"
 -- 	end,
 -- },
+-- return {
+-- "sainnhe/everforest",
+-- lazy = false,
+-- priority = 1000,
+-- config = function()
+-- 	vim.g.everforest_background = "hard"
+-- 	vim.g.everforest_better_performance = 1
+-- 	vim.cmd([[colorscheme everforest]])
+-- 	vim.g.lualine_theme = "everforest"
+-- end,
+-- }
+-- return {
+--     "rose-pine/neovim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+--         require("rose-pine").setup()
+--         vim.cmd("colorscheme rose-pine")
+-- 	end,
+-- }
+-- return {
+--     'AlexvZyl/nordic.nvim',
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--         require 'nordic'.load()
+--     end
+-- }
 return {
-	"sainnhe/everforest",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		vim.g.everforest_background = "hard"
-		vim.g.everforest_better_performance = 1
-		vim.cmd([[colorscheme everforest]])
-		vim.g.lualine_theme = "everforest"
-	end,
+    "catppuccin/nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require("catppuccin").setup({
+            flavour = "macchiato",
+        })
+        vim.cmd.colorscheme "catppuccin"
+    end
 }
+
+-- return {}
