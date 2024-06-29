@@ -106,6 +106,7 @@ return {
             "prettier",
             "prettierd",
             "stylua",
+            "luacheck",
             "isort",
             "ruff",
             "mypy",

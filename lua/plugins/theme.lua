@@ -53,16 +53,24 @@
 --         require 'nordic'.load()
 --     end
 -- }
+-- return {
+--     "catppuccin/nvim",
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--         require("catppuccin").setup({
+--             flavour = "macchiato",
+--         })
+--         vim.cmd.colorscheme "catppuccin"
+--     end
+-- }
 return {
-    "catppuccin/nvim",
+    'loctvl842/monokai-pro.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-        require("catppuccin").setup({
-            flavour = "macchiato",
-        })
-        vim.cmd.colorscheme "catppuccin"
+        require("monokai-pro").setup()
+        vim.cmd([[colorscheme monokai-pro]])
     end
 }
-
 -- return {}
