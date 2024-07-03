@@ -36,7 +36,7 @@ return {
                 map("<leader>fs", vim.lsp.buf.format, "LSP Format")
                 -- map("gn", vim.lsp.buf.rename, "Rename Symbol")
                 map("<F2>", vim.lsp.buf.rename, "Rename Symbol")
-                map("ca", vim.lsp.buf.code_action, "Code Action")
+                map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
             end,
         })
 
