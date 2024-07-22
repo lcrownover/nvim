@@ -8,6 +8,7 @@ return {
 				javascript = { { "prettierd", "prettier" } },
 				sh = { "shfmt" },
 				markdown = { "markdownlint" },
+                yaml = { "yamlfix" },
 			},
 		})
 	end,

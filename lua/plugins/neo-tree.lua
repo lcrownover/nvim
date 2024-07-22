@@ -8,8 +8,8 @@ return {
         "MunifTanjim/nui.nvim",
     },
     keys = {
-        { "<c-b>",     ":Neotree toggle<CR>", { silent = true } },
-        { "<leader>b", ":Neotree reveal<CR>", { silent = true } },
+        { "<c-b>",     ":Neotree toggle<CR>", silent = true, desc = "Toggle neo-tree" },
+        { "<leader>b", ":Neotree reveal<CR>", silent = true, desc = "Reveal active file with neo-tree" },
     },
     config = function()
         require("neo-tree").setup({

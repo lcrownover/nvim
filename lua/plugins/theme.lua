@@ -11,20 +11,34 @@
 -- 	end,
 -- },
 --
-return {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-        require("tokyonight").setup({
-            -- styles = {
-            --   keywords = { italic = false },
-            -- }
-        })
-        vim.cmd.colorscheme("tokyonight")
-        vim.g.lualine_theme = "tokyonight"
-    end,
-}
+-- return {
+--     "folke/tokyonight.nvim",
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--         require("tokyonight").setup({
+--             -- styles = {
+--             --   keywords = { italic = false },
+--             -- }
+--         })
+--         vim.cmd.colorscheme("tokyonight")
+--         vim.g.lualine_theme = "tokyonight"
+--     end,
+-- }
+-- return {
+--     "Shatur/neovim-ayu",
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--         require('ayu').setup({
+--             mirage = false,  -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
+--             terminal = true, -- Set to `false` to let terminal manage its own colors.
+--             overrides = {},  -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
+--         })
+--         vim.g.lualine_theme = "ayu"
+--         vim.cmd.colorscheme("ayu")
+--     end
+-- }
 -- return {
 -- "sainnhe/everforest",
 -- lazy = false,
@@ -66,13 +80,12 @@ return {
 --         vim.cmd.colorscheme "catppuccin"
 --     end
 -- }
--- return {
---     'loctvl842/monokai-pro.nvim',
---     lazy = false,
---     priority = 1000,
---     config = function()
---         require("monokai-pro").setup()
---         vim.cmd([[colorscheme monokai-pro]])
---     end
--- }
--- return {}
+return {
+    'loctvl842/monokai-pro.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require("monokai-pro").setup()
+        vim.cmd([[colorscheme monokai-pro]])
+    end
+}

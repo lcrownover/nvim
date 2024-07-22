@@ -45,7 +45,7 @@ return {
         capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
         -- LSP servers and their configurations
-        local servers = {
+        local lsp_servers = {
             bashls = {},
             html = {},
             marksman = {},
@@ -116,11 +116,11 @@ return {
             "shellcheck",
             "markdownlint",
             "vale",
-            "yamlfmt",
+            "yamlfix",
         }
 
         -- Builds a list of tools (LSP servers, formatters, linters) to be installed by mason-tool-installer
-        local ensure_installed = vim.tbl_keys(servers or {})
+        local ensure_installed = vim.tbl_keys(lsp_servers or {})
         vim.list_extend(ensure_installed, lsp_tools)
 
         -- Initialize Mason for installing tools
@@ -145,7 +145,7 @@ return {
         require("mason-lspconfig").setup({
             handlers = {
                 function(server_name)
-                    local server = servers[server_name] or {}
+                    local server = lsp_servers[server_name] or {}
                     server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
                     require("lspconfig")[server_name].setup(server)
                 end,
