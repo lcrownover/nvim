@@ -27,8 +27,8 @@ vim.keymap.set("n", "<c-w>w", ":close<cr>", { desc = "Close split" })
 vim.keymap.set("n", "<leader>sw", ToggleWhitespaceVisibility, { desc = "Toggle whitespace visibility" })
 
 -- close the quickfix window
-vim.keymap.set("n", "<leader>qf", ":copen<cr>", { desc = "Open quickfix window" })
-vim.keymap.set("n", "<leader>qc", ":cclose<cr>", { desc = "Close quickfix window" })
+-- vim.keymap.set("n", "<leader>qf", ":copen<cr>", { desc = "Open quickfix window" })
+-- vim.keymap.set("n", "<leader>qc", ":cclose<cr>", { desc = "Close quickfix window" })
 
 -- scratch buffers, normal or splits
 vim.keymap.set("n", "<leader>nn", ":enew<cr>", { desc = "New scratch buffer" })
@@ -50,4 +50,4 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagn
 -- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
 
 -- toggle copilot
-vim.keymap.set("n", "<leader>cc", ":Copilot toggle<cr>", { desc = "Copilot Toggle" })
+vim.keymap.set("n", "<leader>ct", ":Copilot toggle<cr>", { desc = "Copilot Toggle" })
