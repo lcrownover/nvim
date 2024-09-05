@@ -52,6 +52,7 @@ return {
 		vim.keymap.set("n", "<c-g>", builtin.live_grep, { desc = "Find grep" })
 		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Find grep" })
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffers" })
+		vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Find diagnostics" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find help tags" })
 		vim.keymap.set("n", "<leader>f;", builtin.resume, { desc = "Find resume" })
 		vim.keymap.set("n", "<leader>fq", builtin.quickfix, { desc = "Find quickfix" })
