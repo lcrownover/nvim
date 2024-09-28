@@ -60,3 +60,6 @@ vim.keymap.set("n", "<leader>fs", Format, { desc = "LSP Format", silent = true }
 
 -- toggle copilot
 vim.keymap.set("n", "<leader>ct", ":Copilot toggle<cr>", { desc = "Copilot Toggle" })
+
+-- Go
+vim.keymap.set("n", "<leader>lbt", ":lua GoSetBuildTags()<cr>", { desc = "Go - Set Build Tags" })
