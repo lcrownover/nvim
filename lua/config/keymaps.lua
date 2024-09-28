@@ -26,6 +26,10 @@ vim.keymap.set("n", "<c-w>w", ":close<cr>", { desc = "Close split" })
 -- toggle showing of whitespace characters
 vim.keymap.set("n", "<leader>sw", ToggleWhitespaceVisibility, { desc = "Toggle whitespace visibility" })
 
+-- lazygit
+vim.keymap.set('n', '<leader>gg', ':terminal lazygit<CR>', { desc = "Open Lazygit in a Terminal" })
+
+
 -- close the quickfix window
 -- vim.keymap.set("n", "<leader>qf", ":copen<cr>", { desc = "Open quickfix window" })
 -- vim.keymap.set("n", "<leader>qc", ":cclose<cr>", { desc = "Close quickfix window" })

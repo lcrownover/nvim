@@ -69,6 +69,7 @@ return {
                 settings = {
                     gopls = {
                         staticcheck = true,
+                        buildFlags = {"-tags=2311"}
                     },
                 },
             },
