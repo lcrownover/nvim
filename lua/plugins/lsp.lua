@@ -47,6 +47,7 @@ return {
         -- LSP servers and their configurations
         local lsp_servers = {
             bashls = {},
+            clangd = {},
             html = {},
             marksman = {},
             pyright = {
