@@ -50,14 +50,14 @@ return {
             clangd = {},
             html = {},
             marksman = {},
-            pyright = {
-                settings = {
-                    python = {
-                        analysis = {
-                            autoImportCompletions = false,
-                        },
-                    },
-                },
+            ruff_lsp = {
+                -- settings = {
+                --     python = {
+                --         analysis = {
+                --             autoImportCompletions = false,
+                --         },
+                --     },
+                -- },
             },
             ansiblels = {
                 filetypes = {
@@ -110,8 +110,9 @@ return {
             "stylua",
             "luacheck",
             "isort",
-            "ruff",
             "mypy",
+            "ruff",
+            "ruff_lsp",
             "eslint_d",
             "ansible-lint",
             "shfmt",
