@@ -120,6 +120,7 @@ return {
             "markdownlint",
             "vale",
             "yamlfix",
+            "yamllint",
         }
 
         -- Builds a list of tools (LSP servers, formatters, linters) to be installed by mason-tool-installer
