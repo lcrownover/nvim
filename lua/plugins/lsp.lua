@@ -63,14 +63,13 @@ return {
                 filetypes = {
                     "yml.ansible",
                     "yml",
-                    "yaml",
                 },
             },
             gopls = {
                 settings = {
                     gopls = {
                         staticcheck = true,
-                        buildFlags = {"-tags=2311"}
+                        buildFlags = { "-tags=2311" }
                     },
                 },
             },
