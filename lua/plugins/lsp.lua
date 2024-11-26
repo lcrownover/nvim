@@ -50,7 +50,7 @@ return {
             clangd = {},
             html = {},
             marksman = {},
-            ruff_lsp = {
+            ruff = {
                 -- settings = {
                 --     python = {
                 --         analysis = {
