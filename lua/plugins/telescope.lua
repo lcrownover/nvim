@@ -14,6 +14,7 @@ return {
             "Music",
             "Library",
             "venv",
+            ".git/",
         }
         require("telescope").setup({
             defaults = {
@@ -26,6 +27,9 @@ return {
                 },
             },
             pickers = {
+                find_files = {
+                    hidden = true
+                },
                 buffers = {
                     mappings = {
                         n = { ["x"] = require("telescope.actions").delete_buffer },

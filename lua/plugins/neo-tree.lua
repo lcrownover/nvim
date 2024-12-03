@@ -22,6 +22,13 @@ return {
                     ["<C-f>"] = false,
                 },
             },
+            filesystem = {
+                filtered_items = {
+                    visible = true,
+                    hide_dotfiles = false,
+                    hide_gitignored = true,
+                },
+            },
             event_handlers = {
                 {
                     event = "file_opened",
