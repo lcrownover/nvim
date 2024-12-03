@@ -50,15 +50,7 @@ return {
             clangd = {},
             html = {},
             marksman = {},
-            ruff = {
-                -- settings = {
-                --     python = {
-                --         analysis = {
-                --             autoImportCompletions = false,
-                --         },
-                --     },
-                -- },
-            },
+            ruff = {},
             ansiblels = {
                 filetypes = {
                     "yml.ansible",
