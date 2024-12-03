@@ -111,7 +111,6 @@ return {
             "isort",
             "mypy",
             "ruff",
-            "ruff_lsp",
             "eslint_d",
             "ansible-lint",
             "shfmt",
