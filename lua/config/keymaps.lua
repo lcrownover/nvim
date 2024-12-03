@@ -54,7 +54,6 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagn
 -- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
 
 -- formatting code (use LSP, fallback to conform.nvim)
-
 vim.keymap.set("n", "<leader>fs", Format, { desc = "LSP Format", silent = true })
 
 
