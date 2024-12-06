@@ -39,6 +39,13 @@ return {
             end,
         })
 
+        -- Any .yml file is treated as though it's Ansible
+        vim.filetype.add({
+            extension = {
+                yml = "ansible"
+            }
+        })
+
         -- Advertise LSP capabilities
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
@@ -52,8 +59,7 @@ return {
             ruff = {},
             ansiblels = {
                 filetypes = {
-                    "yml.ansible",
-                    "yml",
+                    "ansible",
                 },
             },
             gopls = {
@@ -139,7 +145,8 @@ return {
             handlers = {
                 function(server_name)
                     local server = lsp_servers[server_name] or {}
-                    server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+                    server.capabilities = vim.tbl_deep_extend("force", {}, capabilities,
+                        server.capabilities or {})
                     require("lspconfig")[server_name].setup(server)
                 end,
             },

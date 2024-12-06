@@ -51,15 +51,6 @@
 -- end,
 -- }
 -- return {
---     "rose-pine/neovim",
--- 	lazy = false,
--- 	priority = 1000,
--- 	config = function()
---         require("rose-pine").setup()
---         vim.cmd("colorscheme rose-pine")
--- 	end,
--- }
--- return {
 --     'AlexvZyl/nordic.nvim',
 --     lazy = false,
 --     priority = 1000,
@@ -90,13 +81,13 @@
 --     end
 -- }
 return {
-    'navarasu/onedark.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-        require('onedark').load()
-        -- vim.cmd([[colorscheme onedark]])
-    end
+	'navarasu/onedark.nvim',
+	lazy = false,
+	priority = 1000,
+	config = function()
+		require('onedark').load()
+		-- vim.cmd([[colorscheme onedark]])
+	end
 }
 -- return {
 --     'cpea2506/one_monokai.nvim',

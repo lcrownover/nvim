@@ -69,11 +69,11 @@ vim.opt.smartcase = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>") -- clear hl on esc
 
 -- default formatting
--- vim.opt.tabstop = 4
--- vim.opt.shiftwidth = 4
--- vim.opt.expandtab = true
--- vim.opt.smartindent = true
--- vim.opt.breakindent = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.breakindent = true
 
 -- splits
 vim.opt.splitbelow = true
