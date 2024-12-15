@@ -62,3 +62,16 @@ vim.keymap.set("n", "<leader>ct", ":Copilot toggle<cr>", { desc = "Copilot Toggl
 
 -- Go
 vim.keymap.set("n", "<leader>lbt", ":lua GoSetBuildTags()<cr>", { desc = "Go - Set Build Tags" })
+
+-- LSP
+vim.keymap.set('n', "gd", require("telescope.builtin").lsp_definitions, { desc = "LSP: Goto Definition" })
+vim.keymap.set('n', "gD", vim.lsp.buf.declaration, { desc = "LSP: Goto Declaration" })
+vim.keymap.set('n', "gr", require("telescope.builtin").lsp_references, { desc = "LSP: Goto References" })
+vim.keymap.set('n', "gi", require("telescope.builtin").lsp_implementations, { desc = "LSP: Goto Implementations" })
+vim.keymap.set('n', "<leader>ls", require("telescope.builtin").lsp_document_symbols, { desc = "LSP: Document Symbols" })
+vim.keymap.set('n', "<leader>lr", ":LspRestart<cr>", { desc = "LSP: Restart LSP server" })
+vim.keymap.set('n', "<leader>li", ":LspInfo<cr>", { desc = "LSP: Show LSP info" })
+vim.keymap.set('n', "<leader>lh", ":ToggleInlayHints<cr>", { desc = "LSP: Toggle LSP inlay hints" })
+vim.keymap.set('n', "gn", vim.lsp.buf.rename, { desc = "LSP: Rename Symbol" })
+vim.keymap.set('n', "<F2>", vim.lsp.buf.rename, { desc = "LSP: Rename Symbol" })
+vim.keymap.set('n', "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Action" })
