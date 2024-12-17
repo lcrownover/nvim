@@ -2,6 +2,9 @@
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- clear hl on esc
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
+
 -- better joining
 vim.keymap.set("n", "J", "mzJ`z")
 
@@ -27,8 +30,7 @@ vim.keymap.set("n", "<c-w>w", ":close<cr>", { desc = "Close split" })
 vim.keymap.set("n", "<leader>sw", ToggleWhitespaceVisibility, { desc = "Toggle whitespace visibility" })
 
 -- lazygit
-vim.keymap.set('n', '<leader>gg', ':terminal lazygit<CR>', { desc = "Open Lazygit in a Terminal" })
-
+-- vim.keymap.set('n', '<leader>gg', ':terminal lazygit<CR>', { desc = "Open Lazygit in a Terminal" })
 
 -- close the quickfix window
 -- vim.keymap.set("n", "<leader>qf", ":copen<cr>", { desc = "Open quickfix window" })
@@ -40,7 +42,7 @@ vim.keymap.set("n", "<leader>nv", ":vnew<cr>", { desc = "New scratch buffer (ver
 vim.keymap.set("n", "<leader>nh", ":new<cr>", { desc = "New scratch buffer (horizontal)" })
 
 -- toggle sign column for copy-paste
-vim.keymap.set("n", "<leader>nu", ":set invnu<cr>:set invrnu<cr>", { desc = "Toggle line numbers" })
+-- vim.keymap.set("n", "<leader>nu", ":set invnu<cr>:set invrnu<cr>", { desc = "Toggle line numbers" })
 
 -- close buffer
 vim.keymap.set("n", "<leader>w", ":bd<cr>", { desc = "Close buffer" })
@@ -55,7 +57,6 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagn
 
 -- formatting code (use LSP, fallback to conform.nvim)
 vim.keymap.set("n", "<leader>fs", Format, { desc = "LSP Format", silent = true })
-
 
 -- toggle copilot
 vim.keymap.set("n", "<leader>ct", ":Copilot toggle<cr>", { desc = "Copilot Toggle" })
