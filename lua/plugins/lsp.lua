@@ -5,6 +5,7 @@ return {
 	dependencies = {
 		{ "j-hui/fidget.nvim", opts = {} },
 		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		'saghen/blink.cmp',
 	},
@@ -74,7 +75,7 @@ return {
 				settings = {
 					Lua = {
 						format = {
-							enable = true,
+							enable = false,
 							defaultConfig = {
 								indent_type = "Spaces",
 								indent_width = 2,
