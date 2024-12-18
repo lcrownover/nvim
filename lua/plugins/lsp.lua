@@ -75,10 +75,10 @@ return {
 				settings = {
 					Lua = {
 						format = {
-							enable = false,
+							enable = true,
 							defaultConfig = {
-								indent_type = "Spaces",
-								indent_width = 2,
+								indent_style = "space",
+								indent_size = 2,
 							},
 						},
 						completion = {
