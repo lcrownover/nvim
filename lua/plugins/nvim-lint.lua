@@ -4,10 +4,10 @@ return {
   config = function()
     local lint = require('lint')
 
-    lint.linters.luacheck = {
+    lint.linters.luacheck = vim.tbl_deep_extend('force', lint.linters.luacheck, {
       cmd = "luacheck",
-      args = { "--globals", "vim", "lvim", "reload", "--", },
-    }
+      args = { '--formatter', 'plain', '--codes', '--ranges', "--globals", "vim", "-", },
+    })
 
     lint.linters_by_ft = {
       ansible = { "ansible_lint" },

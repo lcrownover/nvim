@@ -70,6 +70,8 @@ vim.keymap.set("n", "<leader>q", function() require("quicker").toggle() end, { d
 local snacks = require('snacks')
 vim.keymap.set("n", "<leader>gb", function() snacks.git.blame_line() end, { desc = "Git Blame Line" })
 vim.keymap.set("n", "<leader>gf", function() snacks.lazygit.log_file() end, { desc = "Lazygit Current File History" })
+vim.keymap.set("n", "<leader>gg", function() snacks.lazygit() end, { desc = "Lazygit" })
+vim.keymap.set("n", "<leader>gl", function() snacks.lazygit.log() end, { desc = "Lazygit Log (cwd)" })
 
 -- Pickers
 local fzf = require("fzf-lua")
