@@ -72,13 +72,6 @@ return {
 			lua_ls = {
 				settings = {
 					Lua = {
-						format = {
-							enable = true,
-							defaultConfig = {
-								indent_style = "space",
-								indent_size = 2,
-							},
-						},
 						completion = {
 							callSnippet = "Replace",
 						},
@@ -94,14 +87,13 @@ return {
 
 		}
 
-		local lspconfig = require("lspconfig")
 		for server, config in pairs(servers) do
 			local capabilities = vim.tbl_deep_extend("force",
 				vim.lsp.protocol.make_client_capabilities(),
 				require('blink.cmp').get_lsp_capabilities(config.capabilities),
 				config.capabilities or {})
 			config.capabilities = capabilities
-			lspconfig[server].setup(config)
+			require("lspconfig")[server].setup(config)
 		end
 	end
 }
