@@ -81,13 +81,13 @@
 --     end
 -- }
 return {
-	'navarasu/onedark.nvim',
-	lazy = false,
-	priority = 1000,
-	config = function()
-		require('onedark').load()
-		-- vim.cmd([[colorscheme onedark]])
-	end
+  'navarasu/onedark.nvim',
+  lazy = false,
+  priority = 1000,
+  config = function()
+    require('onedark').load()
+    -- vim.cmd([[colorscheme onedark]])
+  end
 }
 -- return {
 --     'cpea2506/one_monokai.nvim',

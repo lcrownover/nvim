@@ -5,6 +5,7 @@ return {
     local lint = require('lint')
 
     lint.linters.luacheck = {
+      cmd = "luacheck",
       args = { "--globals", "vim", "lvim", "reload", "--", },
     }
 
