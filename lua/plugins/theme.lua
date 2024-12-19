@@ -72,13 +72,13 @@
 --     end
 -- }
 -- return {
---     'loctvl842/monokai-pro.nvim',
---     lazy = false,
---     priority = 1000,
---     config = function()
---         require("monokai-pro").setup()
---         vim.cmd([[colorscheme monokai-pro]])
---     end
+--   'loctvl842/monokai-pro.nvim',
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     require("monokai-pro").setup()
+--     vim.cmd([[colorscheme monokai-pro]])
+--   end
 -- }
 return {
   'navarasu/onedark.nvim',
@@ -86,7 +86,6 @@ return {
   priority = 1000,
   config = function()
     require('onedark').load()
-    -- vim.cmd([[colorscheme onedark]])
   end
 }
 -- return {
