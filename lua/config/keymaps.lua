@@ -49,29 +49,32 @@ vim.keymap.set("n", "<leader>gf", function() snacks.lazygit.log_file() end, { de
 vim.keymap.set("n", "<leader>gg", function() snacks.lazygit() end, { desc = "Lazygit" })
 vim.keymap.set("n", "<leader>gl", function() snacks.lazygit.log() end, { desc = "Lazygit Log (cwd)" })
 
+-- Trouble
+vim.keymap.set("n", "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble diagnostics" })
+
 -- Pickers
 local fzf = require("fzf-lua")
-vim.keymap.set("n", "<c-p>", fzf.files, { desc = "Find files" })
 vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "Find files" })
-vim.keymap.set("n", "<c-g>", fzf.live_grep, { desc = "Find grep" })
 vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "Find grep" })
 vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "Find buffers" })
 vim.keymap.set("n", "<leader>fd", fzf.diagnostics_workspace, { desc = "Find diagnostics" })
-vim.keymap.set("n", "<leader>fh", fzf.manpages, { desc = "Find help tags" })
+-- TODO: only show neovim help
+-- vim.keymap.set("n", "<leader>fh", fzf.manpages, { desc = "Find help tags" })
 vim.keymap.set("n", "<leader>f;", fzf.resume, { desc = "Find resume" })
-vim.keymap.set("n", "<leader>fq", fzf.quickfix, { desc = "Find quickfix" })
+-- vim.keymap.set("n", "<leader>fq", fzf.quickfix, { desc = "Find quickfix" })
 vim.keymap.set("n", "<leader>fk", fzf.keymaps, { desc = "Find keymaps" })
 vim.keymap.set("n", "<leader>fa", fzf.autocmds, { desc = "Find autocommands" })
 vim.keymap.set("n", "<leader>fc", fzf.highlights, { desc = "Find colors (highlights)" })
 vim.keymap.set("n", "<leader>fl", fzf.git_commits, { desc = "Find git commits" })
+
 -- LSP specific pickers
 vim.keymap.set("n", "<leader>fs", Format, { desc = "LSP Format", silent = true })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic error messages" })
 vim.keymap.set('n', "gd", fzf.lsp_definitions, { desc = "LSP: Goto Definition" })
 vim.keymap.set('n', "gD", vim.lsp.buf.declaration, { desc = "LSP: Goto Declaration" })
 vim.keymap.set('n', "gr", fzf.lsp_references, { desc = "LSP: Goto References" })
-vim.keymap.set('n', "gi", fzf.lsp_implementations, { desc = "LSP: Goto Implementations" })
-vim.keymap.set('n', "<leader>ls", fzf.lsp_document_symbols, { desc = "LSP: Document Symbols" })
+-- vim.keymap.set('n', "gi", fzf.lsp_implementations, { desc = "LSP: Goto Implementations" })
+-- vim.keymap.set('n', "<leader>ls", fzf.lsp_document_symbols, { desc = "LSP: Document Symbols" })
 vim.keymap.set('n', "<leader>lr", ":LspRestart<cr>", { desc = "LSP: Restart LSP server" })
 vim.keymap.set('n', "<leader>li", ":LspInfo<cr>", { desc = "LSP: Show LSP info" })
 vim.keymap.set('n', "<leader>lh", ":ToggleInlayHints<cr>", { desc = "LSP: Toggle LSP inlay hints" })
