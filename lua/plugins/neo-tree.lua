@@ -7,10 +7,6 @@ return {
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
-  keys = {
-    { "<c-b>",     ":Neotree toggle<CR>", silent = true, desc = "Toggle neo-tree" },
-    { "<leader>b", ":Neotree reveal<CR>", silent = true, desc = "Reveal active file with neo-tree" },
-  },
   config = function()
     require("neo-tree").setup({
       close_if_last_window = true,
@@ -26,7 +22,7 @@ return {
         filtered_items = {
           visible = true,
           hide_dotfiles = false,
-          hide_gitignored = true,
+          hide_gitignored = false,
         },
       },
       event_handlers = {

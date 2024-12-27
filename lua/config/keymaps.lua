@@ -29,36 +29,12 @@ vim.keymap.set("n", "<c-w>w", ":close<cr>", { desc = "Close split" })
 -- toggle showing of whitespace characters
 vim.keymap.set("n", "<leader>sw", ToggleWhitespaceVisibility, { desc = "Toggle whitespace visibility" })
 
--- lazygit
--- vim.keymap.set('n', '<leader>gg', ':terminal lazygit<CR>', { desc = "Open Lazygit in a Terminal" })
-
--- close the quickfix window
--- vim.keymap.set("n", "<leader>qf", ":copen<cr>", { desc = "Open quickfix window" })
--- vim.keymap.set("n", "<leader>qc", ":cclose<cr>", { desc = "Close quickfix window" })
-
--- scratch buffers, normal or splits
-vim.keymap.set("n", "<leader>nn", ":enew<cr>", { desc = "New scratch buffer" })
-vim.keymap.set("n", "<leader>nv", ":vnew<cr>", { desc = "New scratch buffer (vertical)" })
-vim.keymap.set("n", "<leader>nh", ":new<cr>", { desc = "New scratch buffer (horizontal)" })
-
--- toggle sign column for copy-paste
--- vim.keymap.set("n", "<leader>nu", ":set invnu<cr>:set invrnu<cr>", { desc = "Toggle line numbers" })
-
 -- close buffer
 vim.keymap.set("n", "<leader>w", ":bd<cr>", { desc = "Close buffer" })
 
--- quick key for regex
-vim.keymap.set("n", "<leader>r", ":%s/", { desc = "Search and replace entire buffer" })
-vim.keymap.set("x", "<leader>r", ":s/", { desc = "Search and replace selection" })
-
--- builtin diagnostics
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic error messages" })
-
--- formatting code (use LSP, fallback to conform.nvim)
-vim.keymap.set("n", "<leader>fs", Format, { desc = "LSP Format", silent = true })
-
--- toggle copilot
--- vim.keymap.set("n", "<leader>ct", ":Copilot toggle<cr>", { desc = "Copilot Toggle" })
+-- Neo-Tree
+vim.keymap.set("n", "<c-b>", ":Neotree toggle<CR>", { silent = true, desc = "Toggle neo-tree" })
+vim.keymap.set("n", "<leader>b", ":Neotree reveal<CR>", { silent = true, desc = "Reveal active file with neo-tree" })
 
 -- Go
 vim.keymap.set("n", "<leader>lbt", ":lua GoSetBuildTags()<cr>", { desc = "Go - Set Build Tags" })
@@ -89,6 +65,8 @@ vim.keymap.set("n", "<leader>fa", fzf.autocmds, { desc = "Find autocommands" })
 vim.keymap.set("n", "<leader>fc", fzf.highlights, { desc = "Find colors (highlights)" })
 vim.keymap.set("n", "<leader>fl", fzf.git_commits, { desc = "Find git commits" })
 -- LSP specific pickers
+vim.keymap.set("n", "<leader>fs", Format, { desc = "LSP Format", silent = true })
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic error messages" })
 vim.keymap.set('n', "gd", fzf.lsp_definitions, { desc = "LSP: Goto Definition" })
 vim.keymap.set('n', "gD", vim.lsp.buf.declaration, { desc = "LSP: Goto Declaration" })
 vim.keymap.set('n', "gr", fzf.lsp_references, { desc = "LSP: Goto References" })
