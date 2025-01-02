@@ -11,20 +11,21 @@
 -- 	end,
 -- },
 --
--- return {
---     "folke/tokyonight.nvim",
---     lazy = false,
---     priority = 1000,
---     config = function()
---         require("tokyonight").setup({
---             -- styles = {
---             --   keywords = { italic = false },
---             -- }
---         })
---         vim.cmd.colorscheme("tokyonight")
---         vim.g.lualine_theme = "tokyonight"
---     end,
--- }
+return {
+	"folke/tokyonight.nvim",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		require("tokyonight").setup({
+			style = "moon",
+			styles = {
+				keywords = { italic = false },
+			}
+		})
+		vim.cmd.colorscheme("tokyonight")
+		vim.g.lualine_theme = "tokyonight"
+	end,
+}
 -- return {
 --     "Shatur/neovim-ayu",
 --     lazy = false,
@@ -80,14 +81,14 @@
 --     vim.cmd([[colorscheme monokai-pro]])
 --   end
 -- }
-return {
-  'navarasu/onedark.nvim',
-  lazy = false,
-  priority = 1000,
-  config = function()
-    require('onedark').load()
-  end
-}
+-- return {
+--   'navarasu/onedark.nvim',
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     require('onedark').load()
+--   end
+-- }
 -- return {
 --     'cpea2506/one_monokai.nvim',
 --     lazy = false,
