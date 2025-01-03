@@ -52,6 +52,9 @@ vim.keymap.set("n", "<leader>gl", function() snacks.lazygit.log() end, { desc = 
 -- Trouble
 vim.keymap.set("n", "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble diagnostics" })
 
+-- Zen Mode
+vim.keymap.set("n", "<leader>zz", function() require('zen-mode').toggle() end, { desc = "Zen Mode Toggle" })
+
 -- Pickers
 local fzf = require("fzf-lua")
 vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "Find files" })
