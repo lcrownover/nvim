@@ -11,21 +11,21 @@
 -- 	end,
 -- },
 --
-return {
-	"folke/tokyonight.nvim",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		require("tokyonight").setup({
-			style = "moon",
-			styles = {
-				keywords = { italic = false },
-			}
-		})
-		vim.cmd.colorscheme("tokyonight")
-		vim.g.lualine_theme = "tokyonight"
-	end,
-}
+-- return {
+-- 	"folke/tokyonight.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("tokyonight").setup({
+-- 			style = "storm",
+-- 			styles = {
+-- 				keywords = { italic = false },
+-- 			}
+-- 		})
+-- 		vim.cmd.colorscheme("tokyonight")
+-- 		vim.g.lualine_theme = "tokyonight"
+-- 	end,
+-- }
 -- return {
 --     "Shatur/neovim-ayu",
 --     lazy = false,
@@ -72,15 +72,17 @@ return {
 --         vim.cmd.colorscheme "catppuccin"
 --     end
 -- }
--- return {
---   'loctvl842/monokai-pro.nvim',
---   lazy = false,
---   priority = 1000,
---   config = function()
---     require("monokai-pro").setup()
---     vim.cmd([[colorscheme monokai-pro]])
---   end
--- }
+return {
+	'loctvl842/monokai-pro.nvim',
+	lazy = false,
+	priority = 1000,
+	config = function()
+		require("monokai-pro").setup({
+			filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+		})
+		vim.cmd([[colorscheme monokai-pro]])
+	end
+}
 -- return {
 --   'navarasu/onedark.nvim',
 --   lazy = false,

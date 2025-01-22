@@ -49,6 +49,9 @@ vim.keymap.set("n", "<leader>gf", function() snacks.lazygit.log_file() end, { de
 vim.keymap.set("n", "<leader>gg", function() snacks.lazygit() end, { desc = "Lazygit" })
 vim.keymap.set("n", "<leader>gl", function() snacks.lazygit.log() end, { desc = "Lazygit Log (cwd)" })
 
+-- VSCode
+vim.keymap.set("n", "<leader>cc", ":!code .<cr>", {silent = true, desc = "Open VSCode here"})
+
 -- Trouble
 vim.keymap.set("n", "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble diagnostics" })
 
