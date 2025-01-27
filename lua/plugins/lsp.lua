@@ -15,7 +15,7 @@ return {
       "bash-language-server",
       "html-lsp",
       "marksman",
-	  "pyright",
+      "pyright",
       "ansible-language-server",
       "gopls",
       "rust-analyzer",
@@ -58,7 +58,7 @@ return {
       bashls = {},
       html = {},
       marksman = {},
-	  pyright = {},
+      pyright = {},
       ansiblels = {
         filetypes = {
           "ansible"
