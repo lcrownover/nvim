@@ -59,30 +59,31 @@
 --         require 'nordic'.load()
 --     end
 -- }
--- return {
---     "catppuccin/nvim",
---     name = "catppuccin",
---     lazy = false,
---     priority = 1000,
---     config = function()
---         require("catppuccin").setup({
---             -- flavour = "mocha",
---             flavour = "macchiato",
---         })
---         vim.cmd.colorscheme "catppuccin"
---     end
--- }
 return {
-	'loctvl842/monokai-pro.nvim',
-	lazy = false,
-	priority = 1000,
-	config = function()
-		require("monokai-pro").setup({
-			filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
-		})
-		vim.cmd([[colorscheme monokai-pro]])
-	end
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require("catppuccin").setup({
+            -- flavour = "mocha",
+            -- flavour = "macchiato",
+            flavour = "frappe",
+        })
+        vim.cmd.colorscheme "catppuccin"
+    end
 }
+-- return {
+-- 	'loctvl842/monokai-pro.nvim',
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("monokai-pro").setup({
+-- 			filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+-- 		})
+-- 		vim.cmd([[colorscheme monokai-pro]])
+-- 	end
+-- }
 -- return {
 --   'navarasu/onedark.nvim',
 --   lazy = false,

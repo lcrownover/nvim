@@ -15,7 +15,7 @@ return {
       "bash-language-server",
       "html-lsp",
       "marksman",
-      "ruff",
+	  "pyright",
       "ansible-language-server",
       "gopls",
       "rust-analyzer",
@@ -29,7 +29,6 @@ return {
       "luacheck",
       "isort",
       "mypy",
-      "ruff",
       "eslint_d",
       "ansible-lint",
       "shfmt",
@@ -59,7 +58,7 @@ return {
       bashls = {},
       html = {},
       marksman = {},
-      ruff = {},
+	  pyright = {},
       ansiblels = {
         filetypes = {
           "ansible"
