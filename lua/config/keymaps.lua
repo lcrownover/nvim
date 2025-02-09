@@ -50,7 +50,7 @@ vim.keymap.set("n", "<leader>gg", function() snacks.lazygit() end, { desc = "Laz
 vim.keymap.set("n", "<leader>gl", function() snacks.lazygit.log() end, { desc = "Lazygit Log (cwd)" })
 
 -- VSCode
-vim.keymap.set("n", "<leader>cc", ":!code .<cr>", {silent = true, desc = "Open VSCode here"})
+vim.keymap.set("n", "<leader>cc", ":!code .<cr>", { silent = true, desc = "Open VSCode here" })
 
 -- Trouble
 vim.keymap.set("n", "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble diagnostics" })
@@ -58,27 +58,27 @@ vim.keymap.set("n", "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>", { desc 
 -- Zen Mode
 vim.keymap.set("n", "<leader>zz", function() require('zen-mode').toggle() end, { desc = "Zen Mode Toggle" })
 
--- Pickers
-local fzf = require("fzf-lua")
-vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "Find files" })
-vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "Find grep" })
-vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "Find buffers" })
-vim.keymap.set("n", "<leader>fd", fzf.diagnostics_workspace, { desc = "Find diagnostics" })
--- TODO: only show neovim help
--- vim.keymap.set("n", "<leader>fh", fzf.manpages, { desc = "Find help tags" })
-vim.keymap.set("n", "<leader>f;", fzf.resume, { desc = "Find resume" })
+-- Pickers(snacks)
+vim.keymap.set("n", "<leader><leader>", function() Snacks.picker.smart() end, { desc = "Smart Find files" })
+vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find files" })
+vim.keymap.set("n", "<leader>fg", function() Snacks.picker.grep() end, { desc = "Find grep" })
+vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Find buffers" })
+vim.keymap.set("n", "<leader>fd", function() Snacks.picker.diagnostics() end, { desc = "Find diagnostics" })
+vim.keymap.set("n", "<leader>fh", function() Snacks.picker.help() end, { desc = "Find help tags" })
+vim.keymap.set("n", "<leader>f;", function() Snacks.picker.resume() end, { desc = "Find resume" })
 -- vim.keymap.set("n", "<leader>fq", fzf.quickfix, { desc = "Find quickfix" })
-vim.keymap.set("n", "<leader>fk", fzf.keymaps, { desc = "Find keymaps" })
-vim.keymap.set("n", "<leader>fa", fzf.autocmds, { desc = "Find autocommands" })
-vim.keymap.set("n", "<leader>fc", fzf.highlights, { desc = "Find colors (highlights)" })
-vim.keymap.set("n", "<leader>fl", fzf.git_commits, { desc = "Find git commits" })
+vim.keymap.set("n", "<leader>fk", function() Snacks.picker.keymaps() end, { desc = "Find keymaps" })
+vim.keymap.set("n", "<leader>fa", function() Snacks.picker.autocmds() end, { desc = "Find autocommands" })
+vim.keymap.set("n", "<leader>fc", function() Snacks.picker.highlights() end, { desc = "Find colors (highlights)" })
+vim.keymap.set("n", "<leader>fl", function() Snacks.picker.git_log() end, { desc = "Find git commits" })
+
 
 -- LSP specific pickers
 vim.keymap.set("n", "<leader>fs", Format, { desc = "LSP Format", silent = true })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic error messages" })
-vim.keymap.set('n', "gd", fzf.lsp_definitions, { desc = "LSP: Goto Definition" })
-vim.keymap.set('n', "gD", vim.lsp.buf.declaration, { desc = "LSP: Goto Declaration" })
-vim.keymap.set('n', "gr", fzf.lsp_references, { desc = "LSP: Goto References" })
+vim.keymap.set('n', "gd", function() Snacks.picker.lsp_definitions() end, { desc = "LSP: Goto Definition" })
+vim.keymap.set('n', "gD", function() Snacks.picker.lsp_declarations() end, { desc = "LSP: Goto Declaration" })
+vim.keymap.set('n', "gr", function() Snacks.picker.lsp_references() end, { desc = "LSP: Goto References" })
 -- vim.keymap.set('n', "gi", fzf.lsp_implementations, { desc = "LSP: Goto Implementations" })
 -- vim.keymap.set('n', "<leader>ls", fzf.lsp_document_symbols, { desc = "LSP: Document Symbols" })
 vim.keymap.set('n', "<leader>lr", ":LspRestart<cr>", { desc = "LSP: Restart LSP server" })

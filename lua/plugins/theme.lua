@@ -11,21 +11,21 @@
 -- 	end,
 -- },
 --
--- return {
--- 	"folke/tokyonight.nvim",
--- 	lazy = false,
--- 	priority = 1000,
--- 	config = function()
--- 		require("tokyonight").setup({
--- 			style = "storm",
--- 			styles = {
--- 				keywords = { italic = false },
--- 			}
--- 		})
--- 		vim.cmd.colorscheme("tokyonight")
--- 		vim.g.lualine_theme = "tokyonight"
--- 	end,
--- }
+return {
+	"folke/tokyonight.nvim",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		require("tokyonight").setup({
+			style = "storm",
+			styles = {
+				keywords = { italic = false },
+			}
+		})
+		vim.cmd.colorscheme("tokyonight")
+		vim.g.lualine_theme = "tokyonight"
+	end,
+}
 -- return {
 --     "Shatur/neovim-ayu",
 --     lazy = false,
@@ -59,20 +59,20 @@
 --         require 'nordic'.load()
 --     end
 -- }
-return {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = false,
-    priority = 1000,
-    config = function()
-        require("catppuccin").setup({
-            -- flavour = "mocha",
-            -- flavour = "macchiato",
-            flavour = "frappe",
-        })
-        vim.cmd.colorscheme "catppuccin"
-    end
-}
+-- return {
+--     "catppuccin/nvim",
+--     name = "catppuccin",
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--         require("catppuccin").setup({
+--             -- flavour = "mocha",
+--             -- flavour = "macchiato",
+--             flavour = "frappe",
+--         })
+--         vim.cmd.colorscheme "catppuccin"
+--     end
+-- }
 -- return {
 -- 	'loctvl842/monokai-pro.nvim',
 -- 	lazy = false,

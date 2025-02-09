@@ -23,5 +23,6 @@ return {
     scroll = { enabled = false },
     statuscolumn = { enabled = false },
     words = { enabled = true },
+    picker = { enabled = true },
   },
 }
