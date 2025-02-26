@@ -87,3 +87,7 @@ vim.keymap.set('n', "<leader>lh", ":ToggleInlayHints<cr>", { desc = "LSP: Toggle
 vim.keymap.set('n', "gn", vim.lsp.buf.rename, { desc = "LSP: Rename Symbol" })
 vim.keymap.set('n', "<F2>", vim.lsp.buf.rename, { desc = "LSP: Rename Symbol" })
 vim.keymap.set('n', "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Action" })
+
+-- Notifier
+vim.keymap.set('n', "<c-q>", function() Snacks.notifier.hide() end, { desc = "Hide Notifications" })
+vim.keymap.set('n', "<leader>nn", function() Snacks.notifier.show_history() end, { desc = "Notification History" })

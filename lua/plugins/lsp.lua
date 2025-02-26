@@ -68,7 +68,7 @@ return {
         settings = {
           gopls = {
             staticcheck = true,
-            buildFlags = { "-tags=2311" }
+            -- buildFlags = { "-tags=2311" }
           }
         },
       },
@@ -100,11 +100,7 @@ return {
     }
 
     for server, config in pairs(servers) do
-      local capabilities = vim.tbl_deep_extend("force",
-        vim.lsp.protocol.make_client_capabilities(),
-        require('blink.cmp').get_lsp_capabilities(),
-        config.capabilities or {})
-      config.capabilities = capabilities
+      config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
       require("lspconfig")[server].setup(config)
     end
   end
