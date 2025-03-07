@@ -50,7 +50,7 @@ return {
             },
             diagnostics = {
               disable = { "missing-fields" },
-              globals = { "vim" },
+              globals = { "vim", "Format", "Snacks", "ToggleWhitespaceVisibility" },
             },
             runtime = { version = 'LuaJIT' },
             workspace = { checkThirdParty = false, library = { vim.env.VIMRUNTIME } }
