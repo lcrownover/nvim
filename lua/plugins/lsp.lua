@@ -4,48 +4,9 @@ return {
   event = { "BufRead", "BufNewFile" },
   dependencies = {
     { "j-hui/fidget.nvim", opts = {} },
-    "williamboman/mason.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
     'saghen/blink.cmp',
   },
   config = function()
-    -- Install tools with Mason first
-    local ensure_installed = {
-      -- LSP Servers
-      "bash-language-server",
-      "html-lsp",
-      "marksman",
-      "pyright",
-      "ansible-language-server",
-      "gopls",
-      "rust-analyzer",
-      "terraform-ls",
-      "svelte-language-server",
-      "lua-language-server",
-      -- Tools
-      "prettier",
-      "prettierd",
-      "stylua",
-      "luacheck",
-      "isort",
-      "mypy",
-      "eslint_d",
-      "ansible-lint",
-      "shfmt",
-      "shellcheck",
-      "markdownlint",
-      "vale",
-      "yamlfix",
-      "yamllint",
-    }
-
-    require("mason").setup({})
-
-    require("mason-tool-installer").setup({
-      ensure_installed = ensure_installed,
-      run_on_start = true,
-    })
-
     -- Any .yml file is treated as though it's Ansible
     vim.filetype.add({
       extension = {
