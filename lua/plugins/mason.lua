@@ -1,7 +1,7 @@
 -- Mason for installing language stuff
 return {
   "williamboman/mason.nvim",
-  event = { "BufRead", "BufNewFile" },
+  lazy = false,
   dependencies = {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },

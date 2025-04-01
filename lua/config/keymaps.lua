@@ -91,3 +91,6 @@ vim.keymap.set('n', "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code A
 -- Notifier
 vim.keymap.set('n', "<c-q>", function() Snacks.notifier.hide() end, { desc = "Hide Notifications" })
 vim.keymap.set('n', "<leader>nn", function() Snacks.notifier.show_history() end, { desc = "Notification History" })
+
+-- Copilot
+vim.keymap.set('n', "<leader>cc", ":lua CopilotChatOpen<cr>", { desc = "Copilot Chat" })
