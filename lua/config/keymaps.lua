@@ -75,6 +75,7 @@ vim.keymap.set("n", "<leader>fl", function() Snacks.picker.git_log() end, { desc
 
 -- LSP specific pickers
 vim.keymap.set("n", "<leader>fs", Format, { desc = "LSP Format", silent = true })
+
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic error messages" })
 vim.keymap.set('n', "gd", function() Snacks.picker.lsp_definitions() end, { desc = "LSP: Goto Definition" })
 vim.keymap.set('n', "gD", function() Snacks.picker.lsp_declarations() end, { desc = "LSP: Goto Declaration" })
@@ -93,4 +94,4 @@ vim.keymap.set('n', "<c-q>", function() Snacks.notifier.hide() end, { desc = "Hi
 vim.keymap.set('n', "<leader>nn", function() Snacks.notifier.show_history() end, { desc = "Notification History" })
 
 -- Copilot
-vim.keymap.set('n', "<leader>cc", ":lua CopilotChatOpen<cr>", { desc = "Copilot Chat" })
+vim.keymap.set('n', "<leader>cc", ":CopilotChatOpen<cr>", { desc = "Copilot Chat" })

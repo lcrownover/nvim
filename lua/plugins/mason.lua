@@ -17,6 +17,7 @@ return {
       "rust-analyzer",
       "terraform-ls",
       "svelte-language-server",
+      "typescript-language-server",
       "lua-language-server",
       -- Tools
       "prettier",
@@ -35,7 +36,15 @@ return {
       "yamllint",
     }
 
-    require("mason").setup({})
+    require("mason").setup({
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗"
+        }
+      }
+    })
 
     require("mason-tool-installer").setup({
       ensure_installed = ensure_installed,

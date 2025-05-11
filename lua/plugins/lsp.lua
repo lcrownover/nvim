@@ -20,6 +20,7 @@ return {
 			html = {},
 			marksman = {},
 			pyright = {},
+      ts_ls = {},
 			ansiblels = {
 				filetypes = {
 					"ansible",
@@ -29,7 +30,7 @@ return {
 				settings = {
 					gopls = {
 						staticcheck = true,
-						-- buildFlags = { "-tags=2311" }
+						buildFlags = { "-tags=2411" },
 					},
 				},
 			},
@@ -60,8 +61,8 @@ return {
 		}
 
 		for server, config in pairs(servers) do
-			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-			require("lspconfig")[server].setup(config)
+			vim.lsp.config(server, config)
+			vim.lsp.enable(server)
 		end
 	end,
 }

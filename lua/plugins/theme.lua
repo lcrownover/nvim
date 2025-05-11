@@ -1,4 +1,4 @@
--- {
+-- return {
 -- 	"sainnhe/gruvbox-material",
 -- 	lazy = false,
 -- 	priority = 1000,
@@ -9,8 +9,20 @@
 -- 		vim.cmd.colorscheme("gruvbox-material")
 -- 		vim.g.lualine_theme = "gruvbox-material"
 -- 	end,
--- },
+-- }
 --
+
+-- return {
+--   "sainnhe/sonokai",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.g.sonokai_enable_italic = true
+--     vim.g.lualine_theme = "sonokai"
+--     vim.cmd.colorscheme("sonokai")
+--   end,
+-- }
+
 return {
 	"folke/tokyonight.nvim",
 	lazy = false,
@@ -26,6 +38,8 @@ return {
 		vim.g.lualine_theme = "tokyonight"
 	end,
 }
+
+
 -- return {
 --     "Shatur/neovim-ayu",
 --     lazy = false,
@@ -52,12 +66,13 @@ return {
 -- end,
 -- }
 -- return {
---     'AlexvZyl/nordic.nvim',
---     lazy = false,
---     priority = 1000,
---     config = function()
---         require 'nordic'.load()
---     end
+--   'AlexvZyl/nordic.nvim',
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.g.lualine_theme = "nordic"
+--     require 'nordic'.load()
+--   end
 -- }
 -- return {
 --     "catppuccin/nvim",
@@ -83,6 +98,15 @@ return {
 -- 		})
 -- 		vim.cmd([[colorscheme monokai-pro]])
 -- 	end
+-- }
+-- return {
+--   "EdenEast/nightfox.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.g.lualine_theme = "nightfox"
+--     vim.cmd("colorscheme nightfox")
+--   end
 -- }
 -- return {
 --   'navarasu/onedark.nvim',

@@ -68,8 +68,10 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- default formatting
-vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 
 -- splits
 vim.opt.splitbelow = true
