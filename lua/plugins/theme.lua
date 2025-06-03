@@ -39,6 +39,16 @@ return {
 	end,
 }
 
+-- return {
+--   "rebelot/kanagawa.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.cmd.colorscheme("kanagawa")
+--     vim.g.lualine_theme = "kanagawa"
+--   end
+-- }
+
 
 -- return {
 --     "Shatur/neovim-ayu",
