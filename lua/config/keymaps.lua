@@ -95,3 +95,17 @@ vim.keymap.set('n', "<leader>nn", function() Snacks.notifier.show_history() end,
 
 -- Copilot
 vim.keymap.set('n', "<leader>cc", ":CopilotChatOpen<cr>", { desc = "Copilot Chat" })
+
+-- Multicursor
+local mc = require("multicursor-nvim")
+-- Add or skip cursor above/below the main cursor.
+vim.keymap.set({"n", "x"}, "<up>", function() mc.lineAddCursor(-1) end)
+vim.keymap.set({"n", "x"}, "<down>", function() mc.lineAddCursor(1) end)
+vim.keymap.set({"n", "x"}, "<leader><up>", function() mc.lineSkipCursor(-1) end)
+vim.keymap.set({"n", "x"}, "<leader><down>", function() mc.lineSkipCursor(1) end)
+-- Add or skip adding a new cursor by matching word/selection
+vim.keymap.set({"n", "x"}, "<leader>d", function() mc.matchAddCursor(1) end)
+vim.keymap.set({"n", "x"}, "<leader>s", function() mc.matchSkipCursor(1) end)
+vim.keymap.set({"n", "x"}, "<leader>D", function() mc.matchAddCursor(-1) end)
+vim.keymap.set({"n", "x"}, "<leader>S", function() mc.matchSkipCursor(-1) end)
+

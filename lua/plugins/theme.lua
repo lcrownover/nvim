@@ -24,19 +24,19 @@
 -- }
 
 return {
-	"folke/tokyonight.nvim",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		require("tokyonight").setup({
-			style = "storm",
-			styles = {
-				keywords = { italic = false },
-			}
-		})
-		vim.cmd.colorscheme("tokyonight")
-		vim.g.lualine_theme = "tokyonight"
-	end,
+  "folke/tokyonight.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    require("tokyonight").setup({
+      style = "storm",
+      styles = {
+        keywords = { italic = false },
+      }
+    })
+    vim.cmd.colorscheme("tokyonight")
+    vim.g.lualine_theme = "tokyonight"
+  end,
 }
 
 -- return {
