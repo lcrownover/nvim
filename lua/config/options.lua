@@ -76,3 +76,9 @@ vim.opt.softtabstop = 4
 -- splits
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+-- folds
+vim.opt.foldmethod = 'expr'
+vim.opt.foldlevel = 99
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldtext = ''

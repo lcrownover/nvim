@@ -12,7 +12,7 @@ return {
     lint.linters_by_ft = {
       ansible = { "ansible_lint" },
       yaml = { "ansible_lint", "yamllint" },
-      python = { "mypy", "ruff" },
+      python = { "ruff" },
       lua = { "luacheck" },
       sh = { "shellcheck" },
       markdown = { "vale" },

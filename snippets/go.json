@@ -1,4 +1,4 @@
-{ 
+{
 	"if err != nil wrap": {
         "prefix": "irr",
         "body": "if err != nil {\n\treturn ${1:nil}, fmt.Errorf(\"${2:msg}: %v\", err)\n}",

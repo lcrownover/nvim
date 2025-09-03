@@ -6,12 +6,12 @@ return {
     { "j-hui/fidget.nvim", opts = {} },
   },
   config = function()
-    -- Any .yml file is treated as though it's Ansible
-    vim.filetype.add({
-      extension = {
-        yml = "ansible",
-      },
-    })
+    -- Any .yml file is treated as though it's Ansible (actually using VS Code for ansible now, fuck that noise)
+    -- vim.filetype.add({
+    --   extension = {
+    --     yml = "ansible",
+    --   },
+    -- })
 
     -- Now configure LSP servers
     local servers = {
@@ -20,16 +20,16 @@ return {
       marksman = {},
       pyright = {},
       ts_ls = {},
-      ansiblels = {
-        filetypes = {
-          "ansible",
-        },
-      },
+      -- ansiblels = {
+      --   filetypes = {
+      --     "ansible",
+      --   },
+      -- },
       gopls = {
         settings = {
           gopls = {
             staticcheck = true,
-            buildFlags = { "-tags=2411" },
+            -- buildFlags = { "-tags=2411" },
           },
         },
       },
