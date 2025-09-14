@@ -15,7 +15,7 @@ return {
 					end
 				end,
 				sh = { "shfmt" },
-				markdown = { "markdownlint" },
+				markdown = { "markdownlint", "prettier" },
 				yaml = { "yamlfix" },
 				go = { "goimports", "gofmt" },
 				["_"] = { "trim_whitespace" },
