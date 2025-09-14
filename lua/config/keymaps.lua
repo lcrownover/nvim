@@ -71,7 +71,10 @@ vim.keymap.set("n", "<leader>fl", function() Snacks.picker.git_log() end, { desc
 
 
 -- LSP specific pickers
-vim.keymap.set("n", "<leader>fs", Format, { desc = "LSP Format", silent = true })
+-- vim.keymap.set("n", "<leader>fs", Format, { desc = "LSP Format", silent = true })
+vim.keymap.set("n", "<leader>fs", function() require("conform").format({ async = true }) end,
+  { desc = "LSP Format", silent = true })
+
 
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic error messages" })
 vim.keymap.set('n', "gd", function() Snacks.picker.lsp_definitions() end, { desc = "LSP: Goto Definition" })

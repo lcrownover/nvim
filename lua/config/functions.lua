@@ -5,14 +5,14 @@ end
 
 -- this uses the LSP formatter if it exists,
 -- otherwise uses conform.nvim
-function Format()
-  for _, client in pairs(vim.lsp.get_clients()) do
-    if client:supports_method("textDocument/formatting") then
-      return vim.lsp.buf.format({ async = true })
-    end
-  end
-  require("conform").format({ async = true })
-end
+-- function Format()
+--   for _, client in pairs(vim.lsp.get_clients()) do
+--     if client:supports_method("textDocument/formatting") then
+--       return vim.lsp.buf.format({ async = true })
+--     end
+--   end
+--   require("conform").format({ async = true })
+-- end
 
 function ToggleInlayHints()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
