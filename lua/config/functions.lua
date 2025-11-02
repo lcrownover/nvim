@@ -14,10 +14,6 @@ end
 --   require("conform").format({ async = true })
 -- end
 
-function ToggleInlayHints()
-  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-end
-
 function Tprint(tbl, indent)
   if not indent then
     indent = 0

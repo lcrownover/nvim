@@ -84,7 +84,7 @@ vim.keymap.set('n', "gr", function() Snacks.picker.lsp_references() end, { desc 
 -- vim.keymap.set('n', "<leader>ls", fzf.lsp_document_symbols, { desc = "LSP: Document Symbols" })
 vim.keymap.set('n', "<leader>lr", ":LspRestart<cr>", { desc = "LSP: Restart LSP server" })
 vim.keymap.set('n', "<leader>li", ":LspInfo<cr>", { desc = "LSP: Show LSP info" })
-vim.keymap.set('n', "<leader>lh", ":ToggleInlayHints<cr>", { desc = "LSP: Toggle LSP inlay hints" })
+vim.keymap.set('n', "<leader>lh", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = "LSP: Toggle LSP inlay hints" })
 vim.keymap.set('n', "gn", vim.lsp.buf.rename, { desc = "LSP: Rename Symbol" })
 vim.keymap.set('n', "<F2>", vim.lsp.buf.rename, { desc = "LSP: Rename Symbol" })
 vim.keymap.set('n', "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Action" })
@@ -94,7 +94,8 @@ vim.keymap.set('n', "<c-q>", function() Snacks.notifier.hide() end, { desc = "Hi
 vim.keymap.set('n', "<leader>nn", function() Snacks.notifier.show_history() end, { desc = "Notification History" })
 
 -- Copilot
--- vim.keymap.set('n', "<leader>cc", ":CopilotChatOpen<cr>", { desc = "Copilot Chat" })
+vim.keymap.set('n', "<leader>cpe", ":Copilot enable<cr>", { desc = "Copilot Enable" })
+vim.keymap.set('n', "<leader>cpd", ":Copilot disable<cr>", { desc = "Copilot Disable" })
 
 -- Find/Replace
 vim.keymap.set('n', "<leader>r", 'viw"ry:%s/<C-r>r/', { desc = "Find word and replace" })

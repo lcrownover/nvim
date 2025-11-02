@@ -6,6 +6,9 @@ return {
     { "j-hui/fidget.nvim", opts = {} },
   },
   config = function()
+    -- disable inlay hints by default
+    vim.lsp.inlay_hint.enable(false)
+
     -- Any .yml file is treated as though it's Ansible (actually using VS Code for ansible now, fuck that noise)
     -- vim.filetype.add({
     --   extension = {

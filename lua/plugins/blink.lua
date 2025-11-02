@@ -13,13 +13,13 @@ return {
     },
     completion = {
       documentation = { auto_show = false },
-      list = {
-        selection = {
-          preselect = function(_)
-            return not require("blink.cmp").snippet_active({ direction = 1 })
-          end,
-        },
-      },
+      -- list = {
+      --   selection = {
+      --     preselect = function(_)
+      --       return not require("blink.cmp").snippet_active({ direction = 1 })
+      --     end,
+      --   },
+      -- },
       menu = {
         draw = {
           components = {
