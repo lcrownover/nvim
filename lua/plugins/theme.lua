@@ -99,7 +99,7 @@
 --     end
 -- }
 return {
-	-- 'loctvl842/monokai-pro.nvim',
+  -- 'loctvl842/monokai-pro.nvim',
   dir = "/Users/lcrown/repos/monokai-pro.nvim",
   dev = true,
   lazy = false,
