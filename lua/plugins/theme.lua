@@ -99,16 +99,16 @@
 --     end
 -- }
 return {
-  -- 'loctvl842/monokai-pro.nvim',
-  dir = "/Users/lcrown/repos/monokai-pro.nvim",
-  dev = true,
+  'khoido2003/monokai-v2.nvim',
+  -- dir = "/Users/lcrown/repos/monokai-pro.nvim",
+  -- dev = true,
   lazy = false,
   priority = 1000,
   config = function()
-    require("monokai-pro").setup({
-      filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+    require("monokai-v2").setup({
+      -- filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
     })
-    vim.cmd([[colorscheme monokai-pro]])
+    vim.cmd([[colorscheme monokai-v2]])
   end
 }
 -- return {
