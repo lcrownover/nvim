@@ -5,47 +5,33 @@ return {
   dependencies = {
     { "j-hui/fidget.nvim", opts = {} },
   },
-  opts = {
-    inlay_hints = { enabled = false },
-  },
   config = function()
-    -- Any .yml file is treated as though it's Ansible (actually using VS Code for ansible now, fuck that noise)
-    -- vim.filetype.add({
-    --   extension = {
-    --     yml = "ansible",
-    --   },
-    -- })
-
+    local default_config = { inlay_hints = { enabled = false } }
     -- Now configure LSP servers
     local servers = {
-      bashls = {},
-      html = {},
-      marksman = {},
-      pyright = {},
-      ts_ls = {},
-      -- ansiblels = {
-      --   filetypes = {
-      --     "ansible",
-      --   },
-      -- },
-      gopls = {
+      bashls = default_config,
+      html = default_config,
+      marksman = default_config,
+      pyright = default_config,
+      ts_ls = default_config,
+      gopls = vim.tbl_deep_extend("force", default_config, {
         settings = {
           gopls = {
             staticcheck = true,
             -- buildFlags = { "-tags=2411" },
           },
         },
-      },
-      rust_analyzer = {
+      }),
+      rust_analyzer = vim.tbl_deep_extend("force", default_config, {
         tools = {
           inlay_hints = {
             auto = false,
           },
         },
-      },
-      terraformls = {},
-      svelte = {},
-      lua_ls = {
+      }),
+      terraformls = default_config,
+      svelte = default_config,
+      lua_ls = vim.tbl_deep_extend("force", default_config, {
         settings = {
           Lua = {
             completion = {
@@ -59,7 +45,7 @@ return {
             workspace = { checkThirdParty = false, library = { vim.env.VIMRUNTIME } },
           },
         },
-      },
+      }),
     }
 
     for server, config in pairs(servers) do
