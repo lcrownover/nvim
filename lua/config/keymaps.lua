@@ -53,7 +53,7 @@ vim.keymap.set("n", "<leader>cc", ":!code .<cr>", { silent = true, desc = "Open 
 vim.keymap.set("n", "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble diagnostics" })
 
 -- Zen Mode
-vim.keymap.set("n", "<leader>zz", function() require('zen-mode').toggle() end, { desc = "Zen Mode Toggle" })
+-- vim.keymap.set("n", "<leader>zz", function() require('zen-mode').toggle() end, { desc = "Zen Mode Toggle" })
 
 -- Pickers(snacks)
 vim.keymap.set("n", "<leader><leader>", function() Snacks.picker.smart() end, { desc = "Smart Find files" })
@@ -72,8 +72,7 @@ vim.keymap.set("n", "<leader>fl", function() Snacks.picker.git_log() end, { desc
 
 -- LSP specific pickers
 -- vim.keymap.set("n", "<leader>fs", Format, { desc = "LSP Format", silent = true })
-vim.keymap.set("n", "<leader>fs", function() require("conform").format({ async = true }) end,
-  { desc = "LSP Format", silent = true })
+vim.keymap.set("n", "<leader>fs", function() require("conform").format({ async = true }) end, { desc = "LSP Format", silent = true })
 
 
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic error messages" })
