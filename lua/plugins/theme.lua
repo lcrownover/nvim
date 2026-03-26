@@ -32,7 +32,7 @@
 --       style = "storm",
 --       styles = {
 --         keywords = { italic = false },
---       }
+--       },
 --     })
 --     vim.cmd.colorscheme("tokyonight")
 --     vim.g.lualine_theme = "tokyonight"
@@ -98,6 +98,17 @@
 --         vim.cmd.colorscheme "catppuccin"
 --     end
 -- }
+-- return {
+--   "loctvl842/monokai-pro.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     require("monokai-pro").setup({
+--       -- filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+--     })
+--     vim.cmd([[colorscheme monokai-pro]])
+--   end
+-- }
 return {
   'khoido2003/monokai-v2.nvim',
   -- dir = "/Users/lcrown/repos/monokai-pro.nvim",
@@ -111,6 +122,15 @@ return {
     vim.cmd([[colorscheme monokai-v2]])
   end
 }
+
+-- return {
+--   "felipeagc/fleet-theme-nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.cmd([[colorscheme fleet]])
+--   end
+-- }
 -- return {
 --   "EdenEast/nightfox.nvim",
 --   lazy = false,

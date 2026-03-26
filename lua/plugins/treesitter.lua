@@ -1,6 +1,9 @@
 -- Treesitter!
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    "nvim-treesitter/playground"
+  },
   branch = "master",
   lazy = false,
   build = ":TSUpdate",
