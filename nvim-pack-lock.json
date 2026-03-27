@@ -1,0 +1,131 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "rev": "dcde5e7",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "'v1'"
+    },
+    "conform.nvim": {
+      "rev": "086a40d",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "fidget.nvim": {
+      "rev": "7fa433a",
+      "src": "https://github.com/j-hui/fidget.nvim"
+    },
+    "friendly-snippets": {
+      "rev": "6cd7280",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
+    "fzf-lua": {
+      "rev": "bde73a6",
+      "src": "https://github.com/ibhagwan/fzf-lua"
+    },
+    "gitsigns.nvim": {
+      "rev": "a462f41",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "go.nvim": {
+      "rev": "51a6f3b",
+      "src": "https://github.com/ray-x/go.nvim"
+    },
+    "guihua.lua": {
+      "rev": "fdca486",
+      "src": "https://github.com/ray-x/guihua.lua"
+    },
+    "lualine.nvim": {
+      "rev": "47f91c4",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "mason-tool-installer.nvim": {
+      "rev": "443f1ef",
+      "src": "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
+    },
+    "mason.nvim": {
+      "rev": "44d1e90",
+      "src": "https://github.com/williamboman/mason.nvim"
+    },
+    "mini.icons": {
+      "rev": "5b9076d",
+      "src": "https://github.com/echasnovski/mini.icons"
+    },
+    "monokai-v2.nvim": {
+      "rev": "33e6930",
+      "src": "https://github.com/khoido2003/monokai-v2.nvim"
+    },
+    "neo-tree.nvim": {
+      "rev": "ba6871d",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim",
+      "version": "3.0.0 - 4.0.0"
+    },
+    "nui.nvim": {
+      "rev": "de74099",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
+    "nvim-autopairs": {
+      "rev": "59bce2e",
+      "src": "https://github.com/windwp/nvim-autopairs"
+    },
+    "nvim-highlight-colors": {
+      "rev": "e2cb220",
+      "src": "https://github.com/brenoprata10/nvim-highlight-colors"
+    },
+    "nvim-lint": {
+      "rev": "4b03656",
+      "src": "https://github.com/mfussenegger/nvim-lint"
+    },
+    "nvim-lspconfig": {
+      "rev": "1a6d692",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-surround": {
+      "rev": "61319d4",
+      "src": "https://github.com/kylechui/nvim-surround"
+    },
+    "nvim-treesitter": {
+      "rev": "6620ae1c",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
+      "version": "'main'"
+    },
+    "nvim-ts-autotag": {
+      "rev": "8e1c0a3",
+      "src": "https://github.com/windwp/nvim-ts-autotag"
+    },
+    "nvim-web-devicons": {
+      "rev": "d746254",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd522",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "quicker.nvim": {
+      "rev": "063cc44",
+      "src": "https://github.com/stevearc/quicker.nvim"
+    },
+    "snacks.nvim": {
+      "rev": "ad9ede6",
+      "src": "https://github.com/folke/snacks.nvim"
+    },
+    "todo-comments.nvim": {
+      "rev": "31e3c38",
+      "src": "https://github.com/folke/todo-comments.nvim"
+    },
+    "trouble.nvim": {
+      "rev": "bd67efe",
+      "src": "https://github.com/folke/trouble.nvim"
+    },
+    "uv.nvim": {
+      "rev": "b0bce1b",
+      "src": "https://github.com/benomahony/uv.nvim"
+    },
+    "vim-fugitive": {
+      "rev": "3b753cf",
+      "src": "https://github.com/tpope/vim-fugitive"
+    },
+    "vim-tmux-navigator": {
+      "rev": "e41c431",
+      "src": "https://github.com/christoomey/vim-tmux-navigator"
+    }
+  }
+}
