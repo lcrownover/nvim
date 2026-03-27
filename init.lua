@@ -270,14 +270,14 @@ local gh = "https://github.com/"
 vim.pack.add({ { src = gh .. "nvim-treesitter/nvim-treesitter", version = "main" } })
 local ts = require("nvim-treesitter")
 local available_langauges = ts.get_available()
-vim.api.nvim_create_autocmd("BufEnter", {
+vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         local ft = vim.bo.filetype
         for _, al in ipairs(available_langauges) do
             if ft == al then
                 ts.install(ft)
+                vim.treesitter.start()
             end
-            vim.treesitter.start()
         end
     end
 })
