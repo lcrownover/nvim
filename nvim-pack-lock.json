@@ -107,6 +107,10 @@
       "rev": "ad9ede6",
       "src": "https://github.com/folke/snacks.nvim"
     },
+    "sonokai": {
+      "rev": "b023c52",
+      "src": "https://github.com/sainnhe/sonokai"
+    },
     "todo-comments.nvim": {
       "rev": "31e3c38",
       "src": "https://github.com/folke/todo-comments.nvim"

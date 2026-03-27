@@ -108,7 +108,7 @@ local languages = {
         formatter = { "stylua" },
         tools = {
             "lua-language-server",
-            "luacheck",
+            -- "luacheck", installed with "brew install luacheck" due to deps issues
             "stylua",
         },
     },
@@ -265,6 +265,23 @@ local languages = {
 }
 local gh = "https://github.com/"
 
+-- treesitter and auto-installer
+-- vim.pack.add({ gh .. 'nvim-treesitter/playground' })
+vim.pack.add({ { src = gh .. "nvim-treesitter/nvim-treesitter", version = "main" } })
+local ts = require("nvim-treesitter")
+local available_langauges = ts.get_available()
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        local ft = vim.bo.filetype
+        for _, al in ipairs(available_langauges) do
+            if ft == al then
+                ts.install(ft)
+            end
+            vim.treesitter.start()
+        end
+    end
+})
+
 -- Any build hooks get defined here
 vim.api.nvim_create_autocmd("PackChanged", {
     callback = function(event)
@@ -275,7 +292,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
             vim.system({ "cargo", "build", "--release" }, { cwd = event.data.path }):wait()
         end
 
-        require("nvim-treesitter").update()
+        ts.update()
     end,
 })
 
@@ -291,28 +308,12 @@ vim.pack.add({
 })
 
 -- theme
-vim.pack.add({ gh .. "khoido2003/monokai-v2.nvim" })
-require("monokai-v2").setup()
-vim.cmd("colorscheme monokai-v2")
+local theme = "sonokai"
+vim.pack.add({ gh .. "sainnhe/sonokai" })
+vim.cmd.colorscheme(theme)
 
 -- tmux vim integration
 vim.pack.add({ gh .. "christoomey/vim-tmux-navigator" })
-
--- treesitter and auto-installer
--- vim.pack.add({ gh .. 'nvim-treesitter/playground' })
-vim.pack.add({ { src = gh .. "nvim-treesitter/nvim-treesitter", version = "main" } })
-local ts = require("nvim-treesitter")
-local available_langauges = ts.get_available()
-vim.api.nvim_create_autocmd("BufEnter", {
-    callback = function()
-        local ft = vim.bo.filetype
-        for _, al in ipairs(available_langauges) do
-            if ft == al then
-                ts.install(ft)
-            end
-        end
-    end
-})
 
 -- some sane defaults from folke
 vim.pack.add({ gh .. "folke/snacks.nvim" })
@@ -362,6 +363,7 @@ vim.keymap.set("n", "<leader>nn", function() Snacks.notifier.show_history() end,
 vim.pack.add({ gh .. "ibhagwan/fzf-lua" })
 local fzf = require("fzf-lua")
 fzf.setup({
+    fzf_colors = true,
     keymap = {
         fzf = {
             ["ctrl-q"] = "select-all+accept",
@@ -423,7 +425,7 @@ require("lualine").setup({
     options = {
         section_separators = "",
         component_separators = "",
-        theme = vim.g.lualine_theme,
+        theme = theme,
     },
 })
 
@@ -493,10 +495,10 @@ vim.keymap.set("n", "<c-b>", ":Neotree toggle<CR>", { silent = true, desc = "Tog
 vim.keymap.set("n", "<leader>b", ":Neotree reveal<CR>", { silent = true, desc = "Reveal active file with neo-tree" })
 
 -- fancy golang integration
-vim.pack.add({ gh .. "ray-x/go.nvim" })
-require("go").setup({
-    lsp_inlay_hints = { enable = false },
-})
+-- vim.pack.add({ gh .. "ray-x/go.nvim" })
+-- require("go").setup({
+--     lsp_inlay_hints = { enable = false },
+-- })
 
 -- highlights comments with colors and stuff
 vim.pack.add({ gh .. "folke/todo-comments.nvim" })
