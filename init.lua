@@ -80,7 +80,6 @@ vim.opt.splitright = true
 -- folds
 vim.opt.foldmethod = "expr"
 vim.opt.foldlevel = 99
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = ""
 
 local default_lsp_config = { inlay_hints = { enabled = false } }
@@ -275,8 +274,10 @@ vim.api.nvim_create_autocmd("FileType", {
         local ft = vim.bo.filetype
         for _, al in ipairs(available_langauges) do
             if ft == al then
-                ts.install(ft)
+                ts.install(ft):wait(300000)
                 vim.treesitter.start()
+                vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
             end
         end
     end
@@ -302,7 +303,6 @@ vim.pack.add({
     gh .. "echasnovski/mini.icons",
     gh .. "nvim-lua/plenary.nvim",
     gh .. "ray-x/guihua.lua",
-    gh .. "j-hui/fidget.nvim",
     gh .. "MunifTanjim/nui.nvim",
     gh .. "rafamadriz/friendly-snippets",
 })
@@ -314,6 +314,10 @@ vim.cmd.colorscheme(theme)
 
 -- tmux vim integration
 vim.pack.add({ gh .. "christoomey/vim-tmux-navigator" })
+
+-- lsp spinner
+vim.pack.add({ gh .. "j-hui/fidget.nvim" })
+require("fidget").setup()
 
 -- some sane defaults from folke
 vim.pack.add({ gh .. "folke/snacks.nvim" })
