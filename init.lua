@@ -310,6 +310,8 @@ vim.pack.add({
 -- theme
 local theme = "sonokai"
 vim.pack.add({ gh .. "sainnhe/sonokai" })
+vim.g.sonokai_style = 'shusia'
+vim.g.sonokai_better_performance = 1
 vim.cmd.colorscheme(theme)
 
 -- tmux vim integration
