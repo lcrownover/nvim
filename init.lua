@@ -297,6 +297,23 @@ vim.api.nvim_create_autocmd("PackChanged", {
     end,
 })
 
+-- theme
+-- local theme = "sonokai"
+-- vim.pack.add({ gh .. "sainnhe/sonokai" })
+-- vim.g.sonokai_style = 'shusia'
+-- vim.g.sonokai_better_performance = 1
+-- vim.cmd.colorscheme(theme)
+local theme = "onedark"
+vim.pack.add({ gh .. "olimorris/onedarkpro.nvim" })
+require("onedarkpro").setup({
+    highlights = {
+        ["@variable"] = { fg = "${white}" },
+        ["@property"] = { fg = "${white}" },
+        ["@operator"] = { fg = "${cyan}" },
+    }
+})
+vim.cmd.colorscheme(theme)
+
 -- dependencies
 vim.pack.add({
     gh .. "nvim-tree/nvim-web-devicons",
@@ -307,12 +324,6 @@ vim.pack.add({
     gh .. "rafamadriz/friendly-snippets",
 })
 
--- theme
-local theme = "sonokai"
-vim.pack.add({ gh .. "sainnhe/sonokai" })
-vim.g.sonokai_style = 'shusia'
-vim.g.sonokai_better_performance = 1
-vim.cmd.colorscheme(theme)
 
 -- tmux vim integration
 vim.pack.add({ gh .. "christoomey/vim-tmux-navigator" })
@@ -625,6 +636,13 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 -- hex codes highlight to their colors
 vim.pack.add({ gh .. "brenoprata10/nvim-highlight-colors" })
 require("nvim-highlight-colors").setup()
+
+-- render markdown
+vim.pack.add({
+    'https://github.com/MeanderingProgrammer/render-markdown.nvim',
+})
+vim.keymap.set("n", "<leader>md", function() require('render-markdown').toggle() end,
+    { desc = "Markdown: Toggle formatting", silent = true })
 
 -- this flashes the current selection when I yank it
 vim.api.nvim_create_autocmd("TextYankPost", {

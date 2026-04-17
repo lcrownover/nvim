@@ -95,6 +95,10 @@
       "rev": "d746254",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
+    "onedarkpro.nvim": {
+      "rev": "f5fddfd",
+      "src": "https://github.com/olimorris/onedarkpro.nvim"
+    },
     "plenary.nvim": {
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
@@ -102,6 +106,10 @@
     "quicker.nvim": {
       "rev": "063cc44",
       "src": "https://github.com/stevearc/quicker.nvim"
+    },
+    "render-markdown.nvim": {
+      "rev": "54d4b54",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "snacks.nvim": {
       "rev": "ad9ede6",
