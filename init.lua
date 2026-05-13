@@ -268,6 +268,7 @@ local gh = "https://github.com/"
 -- vim.pack.add({ gh .. 'nvim-treesitter/playground' })
 vim.pack.add({ { src = gh .. "nvim-treesitter/nvim-treesitter", version = "main" } })
 local ts = require("nvim-treesitter")
+ts.install { 'latex', 'regex' } -- install languages for compatibility outside ft
 local available_langauges = ts.get_available()
 vim.api.nvim_create_autocmd("FileType", {
     callback = function()
@@ -298,20 +299,23 @@ vim.api.nvim_create_autocmd("PackChanged", {
 })
 
 -- theme
--- local theme = "sonokai"
--- vim.pack.add({ gh .. "sainnhe/sonokai" })
--- vim.g.sonokai_style = 'shusia'
--- vim.g.sonokai_better_performance = 1
--- vim.cmd.colorscheme(theme)
-local theme = "onedark"
-vim.pack.add({ gh .. "olimorris/onedarkpro.nvim" })
-require("onedarkpro").setup({
-    highlights = {
-        ["@variable"] = { fg = "${white}" },
-        ["@property"] = { fg = "${white}" },
-        ["@operator"] = { fg = "${cyan}" },
-    }
-})
+
+local theme = "sonokai"
+vim.pack.add({ gh .. "sainnhe/sonokai" })
+vim.g.sonokai_style = 'shusia'
+vim.g.sonokai_better_performance = 1
+
+-- local theme = "onedark"
+-- vim.pack.add({ gh .. "olimorris/onedarkpro.nvim" })
+-- require("onedarkpro").setup({
+--     highlights = {
+--         ["@variable"] = { fg = "${white}" },
+--         ["@property"] = { fg = "${white}" },
+--         ["@operator"] = { fg = "${cyan}" },
+--     }
+-- })
+
+-- activate the theme
 vim.cmd.colorscheme(theme)
 
 -- dependencies
@@ -338,6 +342,7 @@ local snacks = require("snacks")
 snacks.setup({
     bigfile = { enabled = true },
     dashboard = { enabled = false },
+    image = { enabled = true },
     indent = {
         enabled = true,
         animate = {
@@ -419,7 +424,7 @@ vim.api.nvim_create_autocmd("InsertEnter", {
                     },
                 },
             },
-            opts_extend = { "sources.default" },
+            -- opts_extend = { "sources.default" },
         })
     end,
 })
@@ -637,7 +642,7 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 vim.pack.add({ gh .. "brenoprata10/nvim-highlight-colors" })
 require("nvim-highlight-colors").setup()
 
--- render markdown
+-- markdown rendering and preview
 vim.pack.add({
     'https://github.com/MeanderingProgrammer/render-markdown.nvim',
 })

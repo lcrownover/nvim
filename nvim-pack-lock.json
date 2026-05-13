@@ -37,6 +37,10 @@
       "rev": "47f91c4",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "markview.nvim": {
+      "rev": "dbf74b6",
+      "src": "https://github.com/OXY2DEV/markview.nvim"
+    },
     "mason-tool-installer.nvim": {
       "rev": "443f1ef",
       "src": "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
@@ -122,6 +126,10 @@
     "todo-comments.nvim": {
       "rev": "31e3c38",
       "src": "https://github.com/folke/todo-comments.nvim"
+    },
+    "tokyonight.nvim": {
+      "rev": "8ac29ce",
+      "src": "https://github.com/lcrownover/tokyonight.nvim"
     },
     "trouble.nvim": {
       "rev": "bd67efe",
