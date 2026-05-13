@@ -22,11 +22,11 @@ vim.opt.showmode = false
 vim.opt.shortmess:append({ I = true })
 
 -- disable netrw - this needs to be set super early in the config
-vim.g.loaded = 1
+vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- conceal links like in markdown
-vim.g.conceallevel = 2
+vim.opt.conceallevel = 2
 
 -- updatetime - how many milliseconds until the swap file is written
 vim.opt.updatetime = 250
@@ -59,9 +59,6 @@ vim.opt.sidescrolloff = 10
 -- signcolumn - always show the sign column
 vim.opt.signcolumn = "yes"
 
--- errorbells - turn that shit off
-vim.opt.errorbells = false
-
 -- searching
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
@@ -71,7 +68,6 @@ vim.opt.smartcase = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
 
 -- splits
 vim.opt.splitbelow = true
@@ -221,9 +217,10 @@ local languages = {
             config = default_lsp_config,
             server = "",
         },
-        linter = { "yamllint" },
+        linter = { "jsonlint" },
         formatter = { "prettier" },
         tools = {
+            "jsonlint",
             "prettier",
             "prettierd",
         },
@@ -269,17 +266,17 @@ local gh = "https://github.com/"
 vim.pack.add({ { src = gh .. "nvim-treesitter/nvim-treesitter", version = "main" } })
 local ts = require("nvim-treesitter")
 ts.install { 'latex', 'regex' } -- install languages for compatibility outside ft
-local available_langauges = ts.get_available()
+local available_langauges = {} -- build a tiny cache
+for _, lang in ipairs(ts.get_available()) do available_langauges[lang] = true end
 vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         local ft = vim.bo.filetype
-        for _, al in ipairs(available_langauges) do
-            if ft == al then
-                ts.install(ft):wait(300000)
+        if available_langauges[ft] then
+            ts.install(ft):map(function()
                 vim.treesitter.start()
-                vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+                vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
                 vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-            end
+            end)
         end
     end
 })
@@ -323,7 +320,7 @@ vim.pack.add({
     gh .. "nvim-tree/nvim-web-devicons",
     gh .. "echasnovski/mini.icons",
     gh .. "nvim-lua/plenary.nvim",
-    gh .. "ray-x/guihua.lua",
+    -- gh .. "ray-x/guihua.lua", -- go things
     gh .. "MunifTanjim/nui.nvim",
     gh .. "rafamadriz/friendly-snippets",
 })
@@ -396,6 +393,7 @@ fzf.setup({
 -- autocomplete entries
 vim.pack.add({ { src = gh .. "saghen/blink.cmp", version = "v1" } })
 vim.api.nvim_create_autocmd("InsertEnter", {
+    once = true,
     callback = function()
         require("blink.cmp").setup({
             keymap = { preset = "default" },
@@ -454,8 +452,10 @@ require("lualine").setup({
 -- bootstrap LSP servers
 vim.pack.add({ gh .. "neovim/nvim-lspconfig" })
 for _, config in pairs(languages) do
-    vim.lsp.config(config.lsp.server, config.lsp.config)
-    vim.lsp.enable(config.lsp.server)
+    if config.lsp.server ~= "" then
+        vim.lsp.config(config.lsp.server, config.lsp.config)
+        vim.lsp.enable(config.lsp.server)
+    end
 end
 
 -- mason installs binaries for me
@@ -472,11 +472,9 @@ require("mason").setup({
 })
 local tools = {}
 for _, config in pairs(languages) do
-    for _, c in ipairs(config) do
-        if c.tools ~= nil then
-            for _, t in c.tools do
-                table.insert(tools, t)
-            end
+    if config.tools then
+        for _, t in ipairs(config.tools) do
+            table.insert(tools, t)
         end
     end
 end
@@ -526,16 +524,6 @@ vim.keymap.set("n", "<leader>b", ":Neotree reveal<CR>", { silent = true, desc = 
 vim.pack.add({ gh .. "folke/todo-comments.nvim" })
 require("todo-comments").setup()
 
--- git integration with vim, don't use this too much
-vim.pack.add({ gh .. "tpope/vim-fugitive" })
-vim.keymap.set("n", "<leader>gs", ":Git<cr>", { desc = "Git: Status" })
-vim.keymap.set("n", "<leader>gp", ":Git pull<cr>", { desc = "Git: Pull" })
-vim.keymap.set("n", "<leader>gP", ":Git push<cr>", { desc = "Git: Push" })
-vim.keymap.set("n", "<leader>gb", ":Git blame<cr>", { desc = "Git: Blame" })
-vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit<cr>", { desc = "Git: diffsplit" })
-vim.keymap.set("n", "<leader>gh", ":diffget //2<cr>", { desc = "Git: diffget left" })
-vim.keymap.set("n", "<leader>gl", ":diffget //3<cr>", { desc = "Git: diffget right" })
-
 -- uv integration for python stuff
 vim.pack.add({ gh .. "benomahony/uv.nvim" })
 require("uv").setup({ picker_integration = true })
@@ -570,42 +558,31 @@ end, { desc = "Toggle quickfix" })
 
 -- creating matching tags automatically
 vim.pack.add({ gh .. "windwp/nvim-ts-autotag" })
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte", "vue" },
-    callback = function()
-        require("nvim-ts-autotag").setup()
-    end,
-})
+require("nvim-ts-autotag").setup()
 
 -- shortcuts for adjusting surrounds
 vim.pack.add({ gh .. "kylechui/nvim-surround" })
+require("nvim-surround").setup()
 
 -- lint my stuff
 vim.pack.add({ gh .. "mfussenegger/nvim-lint" })
-vim.api.nvim_create_autocmd("BufRead", {
+local lint = require("lint")
+lint.linters.luacheck = vim.tbl_deep_extend("force", lint.linters.luacheck, {
+    cmd = "luacheck",
+    args = { "--formatter", "plain", "--codes", "--ranges", "--globals", "vim", "-" },
+})
+lint.linters_by_ft = {
+    yaml = languages.yaml.linter,
+    python = languages.python.linter,
+    lua = languages.lua.linter,
+    sh = languages.sh.linter,
+    bash = languages.sh.linter,
+    zsh = languages.sh.linter,
+    markdown = languages.markdown.linter,
+}
+vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
     callback = function()
-        local lint = require("lint")
-
-        lint.linters.luacheck = vim.tbl_deep_extend("force", lint.linters.luacheck, {
-            cmd = "luacheck",
-            args = { "--formatter", "plain", "--codes", "--ranges", "--globals", "vim", "-" },
-        })
-
-        lint.linters_by_ft = {
-            yaml = languages.yaml.linter,
-            python = languages.python.linter,
-            lua = languages.lua.linter,
-            sh = languages.sh.linter,
-            bash = languages.sh.linter,
-            zsh = languages.sh.linter,
-            markdown = languages.markdown.linter,
-        }
-
-        vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
-            callback = function()
-                require("lint").try_lint()
-            end,
-        })
+        require("lint").try_lint()
     end,
 })
 
@@ -633,6 +610,7 @@ vim.keymap.set("n", "<leader>fs", function() conform.format({ async = true }) en
 -- auto pairs of brackets, etc
 vim.pack.add({ gh .. "windwp/nvim-autopairs" })
 vim.api.nvim_create_autocmd("InsertEnter", {
+    once = true,
     callback = function()
         require("nvim-autopairs").setup()
     end,
@@ -646,6 +624,7 @@ require("nvim-highlight-colors").setup()
 vim.pack.add({
     'https://github.com/MeanderingProgrammer/render-markdown.nvim',
 })
+require("render-markdown").setup()
 vim.keymap.set("n", "<leader>md", function() require('render-markdown').toggle() end,
     { desc = "Markdown: Toggle formatting", silent = true })
 
@@ -654,7 +633,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking text",
     group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
     callback = function()
-        vim.highlight.on_yank({})
+        vim.hl.on_yank({})
     end,
 })
 
@@ -681,7 +660,7 @@ end
 
 -- wipe the quickfixlist
 function ClearQuickfixList()
-    vim.cmd([[call setqflist([])]])
+    vim.fn.setqflist({})
 end
 
 -- centering screen on next find results
@@ -718,9 +697,6 @@ vim.keymap.set("n", "<leader>sw", ToggleWhitespaceVisibility, { desc = "Toggle w
 -- close buffer
 vim.keymap.set("n", "<leader>w", ":bd<cr>", { desc = "Close buffer" })
 
--- VSCode
--- vim.keymap.set("n", "<leader>cc", ":!code .<cr>", { silent = true, desc = "Open VSCode here" })
-
 -- Find/Replace
 vim.keymap.set("n", "<leader>r", 'viw"ry:%s/<C-r>r/', { desc = "Find word and replace" })
 vim.keymap.set("x", "<leader>r", '"ry:%s/<C-r>r/', { desc = "Find word and replace" })
@@ -739,7 +715,3 @@ vim.keymap.set("n", "<leader>lh", function() vim.lsp.inlay_hint.enable(not vim.l
 vim.keymap.set("n", "gn", vim.lsp.buf.rename, { desc = "LSP: Rename Symbol" })
 vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "LSP: Rename Symbol" })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Action" })
-
--- Copilot
--- vim.keymap.set("n", "<leader>cpe", ":Copilot enable<cr>", { desc = "Copilot Enable" })
--- vim.keymap.set("n", "<leader>cpd", ":Copilot disable<cr>", { desc = "Copilot Disable" })
