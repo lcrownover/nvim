@@ -272,7 +272,7 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         local ft = vim.bo.filetype
         if available_langauges[ft] then
-            ts.install(ft):map(function()
+            ts.install(ft):await(function()
                 vim.treesitter.start()
                 vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
                 vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
